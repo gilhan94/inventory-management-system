@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## ✨ Inventory Management System
 
 Inventory Management System with Laravel 10 and MySql.
@@ -118,3 +119,6 @@ If you have any ideas to make it more interesting, please send a PR or create an
 
 > Github [@fajarghifar](https://github.com/fajarghifar) &nbsp;&middot;&nbsp;
 > Instagram [@fajarghifar](https://instagram.com/fajarghifar)
+=======
+# inventory-management-system
+>>>>>>> ee7363ebdbe7b5ad8c3c1b15a3280a61f6ccf341
