@@ -11,6 +11,7 @@ use App\Models\Unit;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Illuminate\Http\Request;
 use Picqer\Barcode\BarcodeGeneratorHTML;
+use Illuminate\Support\Facades\Storage;
 use Str;
 
 class ProductController extends Controller
@@ -110,15 +111,19 @@ class ProductController extends Controller
         $product = Product::where("uuid", $uuid)->firstOrFail();
         $product->update($request->except('product_image'));
 
-        $image = $product->product_image;
-        if ($request->hasFile('product_image')) {
+        $file = $request->file("product_image");
 
-            // Delete Old Photo
-            if ($product->product_image) {
-                unlink(public_path('storage/') . $product->product_image);
-            }
-            $image = $request->file('product_image')->store('products', 'public');
-        }
+        // Upload file baru
+        $image = "storage/" . Storage::put("/image", $file);
+
+        // if ($request->hasFile('product_image')) {
+
+        //     // Delete Old Photo
+        //     if ($product->product_image) {
+        //         unlink(public_path('storage/') . $product->product_image);
+        //     }
+        //     $image = $request->file('product_image')->store('products', 'public');
+        // }
 
         $product->name = $request->name;
         $product->slug = Str::slug($request->name, '-');

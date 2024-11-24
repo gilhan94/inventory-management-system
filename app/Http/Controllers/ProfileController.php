@@ -54,7 +54,8 @@ class ProfileController extends Controller
              * Store an image to Storage.
              */
             $file->storeAs($path, $fileName);
-            $validatedData['photo'] = $fileName;
+            // dd($fileName);
+            $validatedData['photo'] =  $fileName;
         }
 
         User::where('id', $user->id)->update($validatedData);

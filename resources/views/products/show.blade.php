@@ -27,7 +27,7 @@
                                 </h3>
 
                                 <img style="width: 90px;" id="image-preview"
-                                    src="{{ $product->product_image ? asset('storage/' . $product->product_image) : asset('assets/img/products/default.webp') }}"
+                                    src="{{ $product->product_image ? asset( $product->product_image) : asset('assets/img/products/default.webp') }}"
                                     alt="" class="img-account-profile mb-2">
                             </div>
                         </div>
